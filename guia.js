@@ -18,8 +18,15 @@ window.addEventListener('keypress', (event) => {
 
     if(gameWord.indexOf(keyword) > -1) {
         rightWord.push(keyword);
-        underScore[gameWord.indexOf(keyword)] = keyword;
-        documentUnderScore = underScore.join(' ');
+
+        // Reemplaza todas las ocurrencias de la letra adivinada
+        for(let i = 0; i < gameWord.length; i++) {
+            if(gameWord[i] === keyword) {
+                underScore[i] = keyword;
+            }
+        }
+
+        documentUnderScore = underScore.join(' '); // Actualiza el texto en el HTML
         document.getElementById('wordSpotlight').textContent = documentUnderScore;
 
         if(underScore.join('') == gameWord) {
@@ -29,9 +36,3 @@ window.addEventListener('keypress', (event) => {
         wrongWord.push(keyword);
     }
 });
-
-function resetGame() {
-    location.reload();
-}
-
-generateUnderscore();
