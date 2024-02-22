@@ -46,28 +46,4 @@ resetBtn.addEventListener('click', () => {
     underScore = [];
     gameWord = word[Math.floor(Math.random() * word.length)];
     documentUnderScore = documentUnderScoreElement.textContent = generateUnderscore().join(' ');
-    keyboardElement.textContent = '';
-    for (let i = 65; i <= 90; i++) {
-        let letter = String.fromCharCode(i);
-        let button = document.createElement('button');
-        button.textContent = letter;
-        button.addEventListener('click', () => {
-            if (gameWord.indexOf(letter) > -1) {
-                rightWord.push(letter);
-                for (let i = 0; i < gameWord.length; i++) {
-                    if (gameWord[i] === letter) {
-                        underScore[i] = letter;
-                    }
-                }
-                documentUnderScore = underScore.join(' ');
-                documentUnderScoreElement.textContent = documentUnderScore;
-                if (underScore.join('') == gameWord) {
-                    alert('You win');
-                }
-            }else {
-                wrongWord.push(letter);
-            }
-        });
-        keyboardElement.appendChild(button);
-    }
 });
