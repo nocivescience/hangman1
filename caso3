@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <style>
-        #guessed {
-            font-size: 20px;
-            height: 40px;
-        }
-    </style>
+
 <body>
     <h1>Hangman Game</h1>
     <p id="word"></p>
@@ -22,11 +17,11 @@
         }
         var remainingLetters = word.length;
         var guessedLetters = [];
-        
+
         function guess() {
             var guess = document.getElementById("letter").value;
             document.getElementById("letter").value = "";
-            if (guess.length === 0) {
+            if (guess.length !== 1) {
                 alert("Please enter a single letter.");
             } else {
                 for (var j = 0; j < word.length; j++) {
@@ -49,7 +44,6 @@
         }
 
         document.getElementById("word").innerHTML = answerArray.join(" ");
-        document.getElementById("guessed").innerHTML = "Guessed letters: " + guessedLetters.join(", ");
     </script>
 </body>
 
