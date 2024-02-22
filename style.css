@@ -1,0 +1,14 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#wordSpotlight {
+    font-size: 2em;
+    color: #f00;
+}
+
+#keyboard {
+    margin: 20px auto;
+    width: 260px;
+}
